@@ -9,6 +9,8 @@ namespace Etazh.Prototype
         private const string FullscreenKey = "Etazh.Fullscreen";
         private const float DesignWidth = 1280;
         private const float DesignHeight = 720;
+        private const double CatFrameSeconds = 0.175;
+        private static readonly Vector2 CatOriginInLobbyPixels = new(1340, 718);
 
         private readonly VisualElement _screen;
         private readonly VisualElement _main;
@@ -16,6 +18,10 @@ namespace Etazh.Prototype
         private readonly Button _start;
         private readonly Button _settingsButton;
         private readonly Button _displayMode;
+        private readonly Image _cat;
+        private readonly Sprite[] _catFrames;
+        private readonly IVisualElementScheduledItem _catPlayback;
+        private double _catStartedAt;
         private bool _fullscreen;
 
         public MainMenuView(VisualElement root, Texture2D background, Action start, Action quit)
@@ -27,6 +33,21 @@ namespace Etazh.Prototype
             _screen.style.unityFont = Resources.Load<Font>("Fonts/PressStart2P-Regular");
             root.Add(_screen);
 
+            _catFrames = Resources.LoadAll<Sprite>("Menu/LobbyCat");
+            if (_catFrames.Length > 0)
+            {
+                Array.Sort(_catFrames, static (a, b) => string.CompareOrdinal(a.name, b.name));
+                _cat = new Image
+                {
+                    name = "main-menu-cat", pickingMode = PickingMode.Ignore,
+                    scaleMode = ScaleMode.StretchToFill, sprite = _catFrames[0]
+                };
+                _cat.style.position = Position.Absolute;
+                _screen.Add(_cat);
+                _catPlayback = _cat.schedule.Execute(ShowCatFrame).Every(45);
+                _catPlayback.Pause();
+            }
+
             var canvas = new VisualElement { pickingMode = PickingMode.Ignore };
             canvas.AddToClassList("main-menu-canvas");
             _screen.Add(canvas);
@@ -36,6 +57,7 @@ namespace Etazh.Prototype
                 float scale = Mathf.Min(size.width / DesignWidth, size.height / DesignHeight);
                 canvas.style.scale = new Scale(new Vector3(scale, scale, 1));
                 canvas.style.top = (size.height - DesignHeight * scale) / 2;
+                PositionCat(size.size, background);
             });
 
             AddTitle(canvas, "ЭТАЖ,", "main-menu-title-first");
@@ -74,10 +96,39 @@ namespace Etazh.Prototype
         public void Show()
         {
             _screen.style.display = DisplayStyle.Flex;
+            _catStartedAt = Time.unscaledTimeAsDouble;
+            _catPlayback?.Resume();
+            if (_cat != null)
+                _cat.sprite = _catFrames[0];
             CloseSettings(_start);
         }
 
-        public void Hide() => _screen.style.display = DisplayStyle.None;
+        public void Hide()
+        {
+            _catPlayback?.Pause();
+            _screen.style.display = DisplayStyle.None;
+        }
+
+        private void PositionCat(Vector2 menuSize, Texture2D background)
+        {
+            if (_cat == null)
+                return;
+
+            // Match the lobby background's cover scale and left-center origin.
+            float scale = Mathf.Max(menuSize.x / background.width, menuSize.y / background.height);
+            float top = (menuSize.y - background.height * scale) / 2;
+            _cat.style.left = CatOriginInLobbyPixels.x * scale;
+            _cat.style.top = top + CatOriginInLobbyPixels.y * scale;
+            _cat.style.width = _catFrames[0].rect.width * scale;
+            _cat.style.height = _catFrames[0].rect.height * scale;
+        }
+
+        private void ShowCatFrame()
+        {
+            int frame = (int)((Time.unscaledTimeAsDouble - _catStartedAt) / CatFrameSeconds) % _catFrames.Length;
+            if (_cat.sprite != _catFrames[frame])
+                _cat.sprite = _catFrames[frame];
+        }
 
         private void ShowSettings()
         {
