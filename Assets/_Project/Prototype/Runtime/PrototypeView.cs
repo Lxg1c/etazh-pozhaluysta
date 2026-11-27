@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,6 +8,9 @@ namespace Etazh.Prototype
 {
     internal sealed class PrototypeView
     {
+        private const string ControlsHint = "Остановки выбираются мышью или клавишами 1–5.";
+        private const int EventHintTailTicks = 6 * ShiftRules.TicksPerSecond;
+
         private readonly bool _artMode;
         private readonly Func<PassengerCall, Sprite> _portrait;
         private readonly Font _displayFont;
@@ -30,6 +35,8 @@ namespace Etazh.Prototype
         private readonly VisualElement[] _waitingPeople = new VisualElement[ShiftRules.FloorCount];
         private readonly Label[] _transfers = new Label[ShiftRules.FloorCount];
         private readonly Label _summary;
+        private readonly Label _shiftHint;
+        private (int From, int Until, string Text)[] _eventHints = Array.Empty<(int, int, string)>();
         private readonly VisualElement _shiftProgress;
         private readonly VisualElement _cabin;
         private readonly Label _artLiftMarker;
@@ -37,6 +44,10 @@ namespace Etazh.Prototype
         private readonly Label _overlayTitle;
         private readonly Label _overlayBody;
         private readonly Button _start;
+        private readonly Button _pause;
+        private readonly Button _resume;
+        private readonly VisualElement _pauseOverlay;
+        private readonly VolumeControl _pauseVolume;
         private readonly Label[] _queue = new Label[ShiftRules.FloorCount];
         private readonly Label[] _stairs = new Label[ShiftRules.FloorCount];
         private readonly Label[] _eventNotices = new Label[ShiftRules.FloorCount];
@@ -63,7 +74,7 @@ namespace Etazh.Prototype
 
         public PrototypeView(VisualElement root, Action<int> selectFloor, Action start,
             RenderTexture artwork = null, Func<PassengerCall, Sprite> portrait = null, bool scenePreview = false,
-            Action returnToMenu = null)
+            Action returnToMenu = null, Action togglePause = null)
         {
             _artMode = artwork != null || scenePreview;
             _portrait = portrait;
@@ -193,13 +204,19 @@ namespace Etazh.Prototype
                     CreateArtFloorInfo(_buttons[floor - 1], floor);
             }
 
+            _shiftHint = AddLabel(root, ControlsHint, "shift-hint");
+            _shiftHint.name = "shift-hint";
+
             VisualElement footer = AddBox(root, "footer");
             if (_artMode)
                 footer.Add(_phase);
             _summary = AddLabel(footer, "", "summary");
             _status = AddLabel(_artMode ? footer : controls, "", "status");
             _status.name = "lift-status";
-            AddLabel(footer, "Мышь или клавиши 1–5", "muted");
+            _pause = new Button(togglePause) { name = "pause-shift", text = "Пауза · Esc" };
+            _pause.AddToClassList("pause-button");
+            _pause.SetEnabled(false);
+            footer.Add(_pause);
 
             _overlay = AddBox(root, "overlay");
             VisualElement card = AddBox(_overlay, "card");
@@ -215,6 +232,53 @@ namespace Etazh.Prototype
                 menu.AddToClassList("return-to-menu");
                 card.Add(menu);
             }
+
+            _pauseOverlay = AddBox(root, "overlay");
+            _pauseOverlay.name = "shift-pause";
+            _pauseOverlay.style.display = DisplayStyle.None;
+            VisualElement pauseCard = AddBox(_pauseOverlay, "card");
+            pauseCard.AddToClassList("pause-card");
+            AddLabel(pauseCard, "ПАУЗА", "pause-title");
+            _pauseVolume = new VolumeControl("pause-volume");
+            pauseCard.Add(_pauseVolume);
+            _resume = new Button(togglePause) { name = "resume-shift", text = "Продолжить" };
+            _resume.AddToClassList("pause-button");
+            _resume.AddToClassList("pause-resume");
+            pauseCard.Add(_resume);
+        }
+
+        public void PrepareShiftHints(IReadOnlyList<PassengerCall> schedule)
+        {
+            _eventHints = schedule
+                .Where(call => call.Kind != PassengerKind.Resident)
+                .GroupBy(call => call.Kind)
+                .Select(group =>
+                {
+                    PassengerCall first = group.First();
+                    int lead = first.Kind == PassengerKind.PartyGuest ? ShiftRules.PartyNoticeTicks : ShiftRules.ApproachTicks;
+                    string tip = first.Kind switch
+                    {
+                        PassengerKind.Mover => $"Переезд · {first.Origin}-й этаж. Коробки займут {first.SpaceUnits} места, доставка даст {first.Reward} очков.",
+                        PassengerKind.PartyGuest => $"Гости расходятся · {first.Origin}-й этаж. Гости выйдут по очереди, каждый займёт одно место.",
+                        PassengerKind.Courier => $"Курьер · {first.Origin}-й этаж. Ждёт {first.PatienceTicks / ShiftRules.TicksPerSecond} сек., доставка даст {first.Reward} очков.",
+                        _ => ""
+                    };
+                    return (first.Tick - lead, first.Tick + EventHintTailTicks, tip);
+                })
+                .ToArray();
+        }
+
+        public void SetPaused(bool paused, bool canSelectFloor)
+        {
+            _pauseOverlay.style.display = paused ? DisplayStyle.Flex : DisplayStyle.None;
+            _pause.SetEnabled(!paused);
+            foreach (Button button in _buttons)
+                button.SetEnabled(!paused && canSelectFloor);
+
+            if (paused)
+                _pauseVolume.Refresh();
+            Button focus = paused ? _resume : _pause;
+            focus.schedule.Execute(() => focus.Focus());
         }
 
         public void ShowIntro()
@@ -260,9 +324,30 @@ namespace Etazh.Prototype
             SetMeter(_space, _spaceFill, $"{space} {model.UsedSpace} / {ShiftRules.MaximumSpaceUnits}", model.UsedSpace, ShiftRules.MaximumSpaceUnits);
             _summary.text = $"Доставлено {model.Delivered}   ·   По лестнице {model.LeftByStairs}";
             _status.text = LiftStatus(model, active);
+            _pause.SetEnabled(active);
+            RefreshShiftHint(model.Tick, active);
 
             for (int floor = 1; floor <= ShiftRules.FloorCount; floor++)
                 RefreshFloor(model, floor, active);
+        }
+
+        private void RefreshShiftHint(int tick, bool active)
+        {
+            if (active)
+            {
+                foreach (var hint in _eventHints)
+                {
+                    if (tick < hint.From || tick >= hint.Until)
+                        continue;
+
+                    _shiftHint.text = hint.Text;
+                    _shiftHint.AddToClassList("hint-event");
+                    return;
+                }
+            }
+
+            _shiftHint.text = ControlsHint;
+            _shiftHint.RemoveFromClassList("hint-event");
         }
 
         public void PositionCabin(double floor, bool moving = false, bool goingUp = false)

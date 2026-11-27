@@ -17,8 +17,11 @@ namespace Etazh.Prototype
         private MainMenuView _mainMenu;
         private ShiftModel _model;
         private bool _active;
+        private bool _paused;
         private int? _best;
         private double _elapsed;
+
+        private void Awake() => VolumeControl.Restore();
 
         private void Start()
         {
@@ -29,7 +32,7 @@ namespace Etazh.Prototype
             _view = new PrototypeView(_hudRoot, SelectFloor, StartShift,
                 _artwork != null ? _artwork.Initialize() : null,
                 _artwork != null ? _artwork.PortraitFor : null,
-                returnToMenu: menuBackground != null ? ShowMainMenu : null);
+                returnToMenu: menuBackground != null ? ShowMainMenu : null, togglePause: TogglePause);
 
             _model = new ShiftModel(Array.Empty<PassengerCall>());
             Refresh();
@@ -55,7 +58,7 @@ namespace Etazh.Prototype
             if (_smokeRunning)
                 return;
 #endif
-            if (!_active)
+            if (!_active || _paused)
                 return;
 
             _elapsed += Time.unscaledDeltaTime;
@@ -94,6 +97,9 @@ namespace Etazh.Prototype
                 if (_mainMenu?.IsVisible != true)
                     StartShift();
             };
+            InputAction pause = _keyboard.AddAction("Pause", InputActionType.Button);
+            pause.AddBinding("<Keyboard>/escape");
+            pause.performed += _ => TogglePause();
             _keyboard.Enable();
         }
 
@@ -102,7 +108,9 @@ namespace Etazh.Prototype
             if (_active)
                 return;
 
-            _model = new ShiftModel(ShiftRules.CreateSchedule());
+            var schedule = ShiftRules.CreateSchedule();
+            _model = new ShiftModel(schedule);
+            _view.PrepareShiftHints(schedule);
             _active = true;
             _elapsed = 0;
             _mainMenu?.Hide();
@@ -129,11 +137,20 @@ namespace Etazh.Prototype
 
         private void SelectFloor(int floor)
         {
-            if (_active && _model.TrySelectFloor(floor))
+            if (_active && !_paused && _model.TrySelectFloor(floor))
             {
                 Refresh();
                 PositionPresentation();
             }
+        }
+
+        private void TogglePause()
+        {
+            if (!_active)
+                return;
+
+            _paused = !_paused;
+            _view.SetPaused(_paused, _model.State == LiftState.Idle);
         }
 
         private void AdvanceTick()

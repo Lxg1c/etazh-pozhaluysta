@@ -18,6 +18,7 @@ namespace Etazh.Prototype
         private readonly Button _start;
         private readonly Button _settingsButton;
         private readonly Button _displayMode;
+        private readonly VolumeControl _volume;
         private readonly Image _cat;
         private readonly Sprite[] _catFrames;
         private readonly IVisualElementScheduledItem _catPlayback;
@@ -76,6 +77,8 @@ namespace Etazh.Prototype
             displayLabel.AddToClassList("main-menu-setting-label");
             _settings.Add(displayLabel);
             _displayMode = AddButton(_settings, "", "main-menu-display", ToggleFullscreen);
+            _volume = new VolumeControl("main-menu-volume");
+            _settings.Add(_volume);
             AddButton(_settings, "НАЗАД", "main-menu-back", () => CloseSettings(_settingsButton));
             _screen.RegisterCallback<NavigationCancelEvent>(evt =>
             {
@@ -132,6 +135,7 @@ namespace Etazh.Prototype
 
         private void ShowSettings()
         {
+            _volume.Refresh();
             _main.style.display = DisplayStyle.None;
             _settings.style.display = DisplayStyle.Flex;
             _displayMode.Focus();

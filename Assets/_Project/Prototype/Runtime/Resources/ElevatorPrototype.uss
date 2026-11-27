@@ -128,6 +128,51 @@
     align-items: center;
 }
 .summary { font-size: 15px; color: #d3e0dd; margin-left: 0; }
+.shift-hint {
+    min-height: 25px;
+    flex-shrink: 0;
+    margin: 5px 0 0;
+    padding: 4px 8px;
+    background-color: #112238;
+    color: #badad6;
+    font-size: 14px;
+    white-space: normal;
+}
+.shift-hint.hint-event {
+    border-left-width: 3px;
+    border-left-color: #ffbd3a;
+    color: #ffe6a7;
+}
+.pause-button {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 4px 11px;
+    border-width: 2px;
+    border-color: #3bc0b7;
+    border-radius: 5px;
+    background-color: #112238;
+    color: #ffedbd;
+    font-size: 15px;
+}
+.pause-button:hover, .pause-button:focus {
+    border-color: #ffbd3a;
+    background-color: #203449;
+}
+.card.pause-card {
+    width: 380px;
+    max-width: 90%;
+    border-width: 3px;
+    border-radius: 7px;
+    border-color: #3bc0b7;
+    background-color: #0d1833;
+}
+.pause-title {
+    margin: 0 0 10px;
+    color: #ffedbd;
+    font-size: 25px;
+    -unity-font-style: bold;
+}
+.pause-resume { align-self: flex-start; padding: 8px 20px; }
 .overlay {
     position: absolute;
     left: 0; right: 0; top: 0; bottom: 0;
