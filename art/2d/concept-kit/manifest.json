@@ -1,0 +1,27 @@
+{
+  "title": "Этаж, пожалуйста — набор по визуальному концепту",
+  "provenance": "Авторский концепт проекта, приложенный пользователем. Верхняя панель и кабина взяты из согласованной редакции того же концепта. Пустая кабина и закрытие контура окна дорисованы в палитре концепта.",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "scene": {
+    "source": "source/concept-scene.aseprite",
+    "nativeSize": [
+      418,
+      235
+    ],
+    "preview": "preview.png",
+    "previewScale": 4,
+    "sampling": "nearest-neighbor"
+  },
+  "atlas": {
+    "source": "source/concept-sprites.aseprite",
+    "texture": "export/concept-sprites.png",
+    "metadata": "export/concept-sprites.json",
+    "size": [
+      240,
+      176
+    ],
+    "namedSlices": 20,
+    "animation": "static"
+  }
+}

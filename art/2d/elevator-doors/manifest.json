@@ -1,0 +1,16 @@
+{
+  "title": "Этаж, пожалуйста — двери лифта",
+  "source": "source/elevator-landing-doors.aseprite",
+  "atlas": "export/elevator-landing-doors.png",
+  "frames": "export/elevator-landing-doors.json",
+  "preview": "preview.gif",
+  "frameSize": [
+    34,
+    32
+  ],
+  "frameCount": 7,
+  "unityScene": "../../../Assets/_Project/Art/Scenes/ElevatorArt.unity",
+  "openingClip": "../../../Assets/_Project/Art/Animations/ElevatorLandingOpen.anim",
+  "previewCycle": "../../../Assets/_Project/Art/Animations/ElevatorArtCycle.anim",
+  "license": "Графика проекта."
+}

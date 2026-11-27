@@ -1,0 +1,29 @@
+{
+  "title": "Этаж, пожалуйста — пустая основа этажа",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "floor-base.aseprite",
+  "export": "floor-base.png",
+  "preview": "preview.png",
+  "nativeSize": [
+    318,
+    43
+  ],
+  "previewScale": 4,
+  "provenance": "../floor-03/source/floor-03.aseprite",
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "layers": [
+    "Стена",
+    "Плинтус",
+    "Плитка",
+    "Перекрытия"
+  ],
+  "technical_checks_passed": true,
+  "shaftPlacement": {
+    "asset": "../elevator-shaft/shaft.png",
+    "topLeft": [
+      280,
+      7
+    ]
+  }
+}

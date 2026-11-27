@@ -1,0 +1,85 @@
+.main-menu-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #082936;
+    background-size: cover;
+    background-position: left center;
+    overflow: hidden;
+}
+
+.main-menu-canvas {
+    position: absolute;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    transform-origin: 0 0;
+}
+
+.main-menu-title {
+    position: absolute;
+    left: 40px;
+    margin: 0;
+    padding: 0;
+    color: #ffedbd;
+    white-space: nowrap;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: #0c282d;
+}
+
+.main-menu-title-first { top: 72px; font-size: 62px; }
+.main-menu-title-second { top: 161px; font-size: 47px; }
+
+.main-menu-actions {
+    position: absolute;
+    top: 296px;
+    left: 58px;
+    width: 378px;
+}
+
+.main-menu-setting-label {
+    position: absolute;
+    top: -29px;
+    margin: 0;
+    color: #ffedbd;
+    font-size: 15px;
+}
+
+.main-menu-button {
+    height: 70px;
+    margin: 0 0 24px;
+    padding: 0;
+    background-color: #112238;
+    border-color: #3bc0b7;
+    border-width: 3px;
+    border-radius: 5px;
+    color: #fff0c9;
+    font-size: 24px;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+}
+
+.main-menu-button:hover, .main-menu-button:focus {
+    border-color: #ffbe3a;
+    background-color: #182636;
+}
+
+.main-menu-button:active { background-color: #2a3544; }
+
+.main-menu-cursor {
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    font-size: 20px;
+    -unity-text-align: middle-left;
+    color: #ffbd29;
+    visibility: hidden;
+}
+
+.main-menu-button:hover .main-menu-cursor, .main-menu-button:focus .main-menu-cursor {
+    visibility: visible;
+}

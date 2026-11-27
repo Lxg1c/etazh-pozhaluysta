@@ -1,0 +1,42 @@
+{
+  "title": "Этаж, пожалуйста — секция лифтовой шахты",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "shaft.aseprite",
+  "export": "shaft.png",
+  "preview": "preview.png",
+  "size": [
+    34,
+    32
+  ],
+  "provenance": "../floor-03/export/shaft.png",
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "layers": [
+    "Глубина шахты",
+    "Левая направляющая",
+    "Правая направляющая"
+  ],
+  "floorPlacement": {
+    "reference": "../floor-base/floor-base.png",
+    "topLeft": [
+      280,
+      7
+    ]
+  },
+  "technical_checks_passed": true,
+  "cabinInterior": {
+    "source": "cabin-interior.aseprite",
+    "export": "cabin-interior.png",
+    "size": [
+      34,
+      33
+    ],
+    "provenance": "../concept-kit/export/concept-sprites.png#cabin_empty",
+    "apertureBoundsFromTopLeft": [
+      6,
+      4,
+      22,
+      25
+    ]
+  }
+}

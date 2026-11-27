@@ -1,0 +1,8 @@
+{
+  "name": "Etazh.Prototype.Runtime",
+  "rootNamespace": "Etazh.Prototype",
+  "references": [
+    "Etazh.Prototype.Core",
+    "Unity.InputSystem"
+  ]
+}

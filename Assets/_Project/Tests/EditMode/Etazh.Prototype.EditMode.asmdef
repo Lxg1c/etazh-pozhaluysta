@@ -1,0 +1,13 @@
+{
+  "name": "Etazh.Prototype.EditMode",
+  "rootNamespace": "Etazh.Prototype.Tests",
+  "references": [
+    "Etazh.Prototype.Core"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

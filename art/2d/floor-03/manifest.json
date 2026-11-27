@@ -1,0 +1,80 @@
+{
+  "title": "Этаж, пожалуйста — третий этаж",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "source/floor-03.aseprite",
+  "preview": "preview.png",
+  "nativeSize": [
+    318,
+    43
+  ],
+  "previewScale": 4,
+  "conceptOrigin": [
+    16,
+    110
+  ],
+  "provenance": [
+    "../concept-kit/preview.png",
+    "../concept-kit/export/concept-sprites.png",
+    "../doors/manifest.json"
+  ],
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "layerExports": [
+    {
+      "id": "architecture",
+      "path": "export/architecture.png",
+      "technical_checks_passed": true
+    },
+    {
+      "id": "shaft",
+      "path": "export/shaft.png",
+      "technical_checks_passed": true
+    },
+    {
+      "id": "lighting",
+      "path": "export/lighting.png",
+      "technical_checks_passed": true
+    },
+    {
+      "id": "decor",
+      "path": "export/decor.png",
+      "technical_checks_passed": true
+    }
+  ],
+  "doorPlacement": [
+    {
+      "id": "stairwell_door",
+      "pivot": [
+        65,
+        37
+      ]
+    },
+    {
+      "id": "door_blue",
+      "pivot": [
+        130,
+        33
+      ]
+    },
+    {
+      "id": "door_ochre",
+      "pivot": [
+        185,
+        33
+      ]
+    },
+    {
+      "id": "door_olive",
+      "pivot": [
+        241,
+        33
+      ]
+    }
+  ],
+  "stairSignTopLeft": [
+    75,
+    12
+  ],
+  "cat": "Статичный спрайт на отдельном слое только для просмотра композиции.",
+  "unityImport": "pending"
+}

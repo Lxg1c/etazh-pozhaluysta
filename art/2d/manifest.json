@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "art_direction_brief": "../../design/gdd/game-design.md#визуальное-направление",
+  "stage": "Five-floor art review",
+  "perspective": "Shallow overhead cutaway with full door fronts",
+  "preview": {
+    "image": "preview.png",
+    "editable_source": "source/floor-preview.aseprite",
+    "native_dimensions": [
+      320,
+      180
+    ],
+    "display_scale": 4,
+    "floor_treatments": [
+      "Cool blue and gold, rainy window and plants",
+      "Sage, a flower console and framed postcard",
+      "Aqua, books and a walking cat",
+      "Mint, rainy window, bench and woven runner",
+      "Sand, glazed main entry, mailboxes and flowers"
+    ]
+  },
+  "hallway_slices": {
+    "wall_tile": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "floor_tile": {
+      "x": 32,
+      "y": 0,
+      "w": 32,
+      "h": 11
+    },
+    "apartment_door": {
+      "x": 64,
+      "y": 0,
+      "w": 19,
+      "h": 29
+    },
+    "stairwell_door": {
+      "x": 96,
+      "y": 0,
+      "w": 19,
+      "h": 29
+    },
+    "stairs_sign": {
+      "x": 0,
+      "y": 32,
+      "w": 13,
+      "h": 12
+    },
+    "building_entry": {
+      "x": 32,
+      "y": 32,
+      "w": 29,
+      "h": 30
+    },
+    "rainy_window": {
+      "x": 64,
+      "y": 32,
+      "w": 27,
+      "h": 19
+    },
+    "cabinet": {
+      "x": 96,
+      "y": 32,
+      "w": 23,
+      "h": 14
+    },
+    "plant": {
+      "x": 0,
+      "y": 64,
+      "w": 15,
+      "h": 18
+    },
+    "wall_light": {
+      "x": 32,
+      "y": 64,
+      "w": 30,
+      "h": 23
+    },
+    "shaft": {
+      "x": 64,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "door_blue": {
+      "x": 96,
+      "y": 64,
+      "w": 19,
+      "h": 29
+    },
+    "door_rose": {
+      "x": 0,
+      "y": 96,
+      "w": 19,
+      "h": 29
+    },
+    "door_gold": {
+      "x": 32,
+      "y": 96,
+      "w": 19,
+      "h": 29
+    },
+    "door_green": {
+      "x": 64,
+      "y": 96,
+      "w": 19,
+      "h": 29
+    },
+    "wall_blue": {
+      "x": 96,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "wall_sage": {
+      "x": 0,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "wall_mint": {
+      "x": 32,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "wall_warm": {
+      "x": 64,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "flower_pot": {
+      "x": 96,
+      "y": 128,
+      "w": 17,
+      "h": 20
+    },
+    "framed_postcard": {
+      "x": 0,
+      "y": 160,
+      "w": 24,
+      "h": 17
+    },
+    "bookcase": {
+      "x": 32,
+      "y": 160,
+      "w": 23,
+      "h": 24
+    },
+    "mailboxes": {
+      "x": 64,
+      "y": 160,
+      "w": 27,
+      "h": 18
+    },
+    "bench": {
+      "x": 96,
+      "y": 160,
+      "w": 30,
+      "h": 13
+    },
+    "runner_rug": {
+      "x": 0,
+      "y": 192,
+      "w": 31,
+      "h": 7
+    }
+  },
+  "assets": [
+    {
+      "id": "hallway",
+      "role": "Modular hallway art",
+      "path": "export/hallway.png",
+      "editable_source": "source/hallway.aseprite",
+      "sprite_sheet_metadata": "export/hallway.json",
+      "status": "pilot-review",
+      "technical": {
+        "dimensions": [
+          128,
+          224
+        ],
+        "frame_size": [
+          128,
+          224
+        ],
+        "frame_count": 1,
+        "alpha": "binary",
+        "opaque_colors": 50,
+        "filtering": "nearest",
+        "anchor": "Bottom-center for props, left-edge grid for repeatable strips",
+        "animation_tags": {},
+        "durations_ms": [
+          100
+        ],
+        "layers": [
+          "wall_tile",
+          "floor_tile",
+          "apartment_door",
+          "stairwell_door",
+          "stairs_sign",
+          "building_entry",
+          "rainy_window",
+          "cabinet",
+          "plant",
+          "wall_light",
+          "shaft",
+          "door_blue",
+          "door_rose",
+          "door_gold",
+          "door_green",
+          "wall_blue",
+          "wall_sage",
+          "wall_mint",
+          "wall_warm",
+          "flower_pot",
+          "framed_postcard",
+          "bookcase",
+          "mailboxes",
+          "bench",
+          "runner_rug"
+        ]
+      },
+      "visual_locks": [
+        "full-height closed doors",
+        "separate stair sign",
+        "rain visible inside windows",
+        "five wall treatments",
+        "full-height colored apartment doors",
+        "distinct floor props"
+      ],
+      "source": {
+        "kind": "original-authored",
+        "creator": "Codex, for the project",
+        "url_or_tool": "Aseprite 1.3.18.6",
+        "created_at": "2026-11-26",
+        "license": "Project-original artwork",
+        "attribution": "No third-party raster assets used",
+        "prompt_or_source_record": "Original pixel artwork drawn in Aseprite. The latest project concept guided the brighter palettes and distinct hallway treatments."
+      },
+      "verification": {
+        "technical_checks_passed": true,
+        "native_grid_reviewed": true,
+        "visual_preview_reviewed": true,
+        "in_engine_reviewed": false
+      }
+    },
+    {
+      "id": "elevator",
+      "role": "Single elevator cabin and sliding-door animation",
+      "path": "export/elevator.png",
+      "editable_source": "source/elevator.aseprite",
+      "sprite_sheet_metadata": "export/elevator.json",
+      "status": "pilot-review",
+      "technical": {
+        "dimensions": [
+          160,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ],
+        "frame_count": 5,
+        "alpha": "binary",
+        "opaque_colors": 14,
+        "filtering": "nearest",
+        "anchor": "Center of a 32x32 shaft cell",
+        "animation_tags": {
+          "closed": [
+            0,
+            0
+          ],
+          "opening": [
+            1,
+            3
+          ],
+          "open": [
+            4,
+            4
+          ]
+        },
+        "durations_ms": [
+          120,
+          70,
+          70,
+          70,
+          700
+        ],
+        "layers": [
+          "Shaft frame",
+          "Cabin interior",
+          "Sliding doors"
+        ]
+      },
+      "visual_locks": [
+        "same outer rails as the shaft slice",
+        "warm lit interior"
+      ],
+      "source": {
+        "kind": "original-authored",
+        "creator": "Codex, for the project",
+        "url_or_tool": "Aseprite 1.3.18.6",
+        "created_at": "2026-11-26",
+        "license": "Project-original artwork",
+        "attribution": "No third-party raster assets used",
+        "prompt_or_source_record": "Original pixel artwork drawn in Aseprite. The latest project concept guided the brighter palettes and distinct hallway treatments."
+      },
+      "verification": {
+        "technical_checks_passed": true,
+        "native_grid_reviewed": true,
+        "visual_preview_reviewed": true,
+        "in_engine_reviewed": false
+      }
+    },
+    {
+      "id": "passenger",
+      "role": "Passenger facing the player while waiting, and side walks for movement",
+      "path": "export/passenger.png",
+      "editable_source": "source/passenger.aseprite",
+      "sprite_sheet_metadata": "export/passenger.json",
+      "status": "pilot-review",
+      "technical": {
+        "dimensions": [
+          240,
+          24
+        ],
+        "frame_size": [
+          24,
+          24
+        ],
+        "frame_count": 10,
+        "alpha": "binary",
+        "opaque_colors": 15,
+        "filtering": "nearest",
+        "anchor": "Bottom center, common baseline",
+        "animation_tags": {
+          "idle_front": [
+            0,
+            1
+          ],
+          "walk_right": [
+            2,
+            5
+          ],
+          "walk_left": [
+            6,
+            9
+          ]
+        },
+        "durations_ms": [
+          950,
+          90,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "layers": [
+          "Ground shadow",
+          "Coat and steps",
+          "Face and cap"
+        ]
+      },
+      "visual_locks": [
+        "front-facing idle",
+        "fixed body volume and cap",
+        "mirrored side walk"
+      ],
+      "source": {
+        "kind": "original-authored",
+        "creator": "Codex, for the project",
+        "url_or_tool": "Aseprite 1.3.18.6",
+        "created_at": "2026-11-26",
+        "license": "Project-original artwork",
+        "attribution": "No third-party raster assets used",
+        "prompt_or_source_record": "Original pixel artwork drawn in Aseprite. The latest project concept guided the brighter palettes and distinct hallway treatments."
+      },
+      "verification": {
+        "technical_checks_passed": true,
+        "native_grid_reviewed": true,
+        "visual_preview_reviewed": true,
+        "in_engine_reviewed": false
+      }
+    },
+    {
+      "id": "cat",
+      "role": "Ambient corridor cat walking cycle",
+      "path": "export/cat.png",
+      "editable_source": "source/cat.aseprite",
+      "sprite_sheet_metadata": "export/cat.json",
+      "status": "pilot-review",
+      "technical": {
+        "dimensions": [
+          96,
+          16
+        ],
+        "frame_size": [
+          24,
+          16
+        ],
+        "frame_count": 4,
+        "alpha": "binary",
+        "opaque_colors": 5,
+        "filtering": "nearest",
+        "anchor": "Bottom center, common baseline",
+        "animation_tags": {
+          "walk_right": [
+            0,
+            3
+          ]
+        },
+        "durations_ms": [
+          120,
+          120,
+          120,
+          120
+        ],
+        "layers": [
+          "Ground shadow",
+          "Tail",
+          "Cat"
+        ]
+      },
+      "visual_locks": [
+        "compact orange and cream silhouette",
+        "four-frame paw and tail motion"
+      ],
+      "source": {
+        "kind": "original-authored",
+        "creator": "Codex, for the project",
+        "url_or_tool": "Aseprite 1.3.18.6",
+        "created_at": "2026-11-26",
+        "license": "Project-original artwork",
+        "attribution": "No third-party raster assets used",
+        "prompt_or_source_record": "The approved project mockup supplied visual direction. Pixel artwork was newly drawn on the native grid through the Aseprite API."
+      },
+      "verification": {
+        "technical_checks_passed": true,
+        "native_grid_reviewed": true,
+        "visual_preview_reviewed": true,
+        "in_engine_reviewed": false
+      }
+    }
+  ]
+}

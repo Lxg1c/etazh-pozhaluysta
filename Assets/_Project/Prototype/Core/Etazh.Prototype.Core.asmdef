@@ -1,0 +1,5 @@
+{
+  "name": "Etazh.Prototype.Core",
+  "rootNamespace": "Etazh.Prototype",
+  "noEngineReferences": true
+}

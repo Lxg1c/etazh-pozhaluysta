@@ -1,0 +1,104 @@
+{
+  "title": "Этаж, пожалуйста — декор этажа",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "decor.aseprite",
+  "preview": "preview.png",
+  "provenance": "../concept-kit/preview.png",
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "lightPlacement": "Совместить точку привязки свечения с точкой привязки лампы. Слой свечения расположен за лампой.",
+  "assets": [
+    {
+      "id": "flowers_pink",
+      "file": "export/flowers_pink.png",
+      "size": [
+        21,
+        23
+      ],
+      "pivotFromTopLeft": [
+        10,
+        22
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "flowers_blue",
+      "file": "export/flowers_blue.png",
+      "size": [
+        21,
+        21
+      ],
+      "pivotFromTopLeft": [
+        10,
+        20
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "picture_sunset",
+      "file": "export/picture_sunset.png",
+      "size": [
+        19,
+        14
+      ],
+      "pivotFromTopLeft": [
+        9,
+        1
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "picture_mountains",
+      "file": "export/picture_mountains.png",
+      "size": [
+        22,
+        17
+      ],
+      "pivotFromTopLeft": [
+        11,
+        1
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "lamp_wall",
+      "file": "export/lamp_wall.png",
+      "size": [
+        12,
+        10
+      ],
+      "pivotFromTopLeft": [
+        6,
+        8
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "lamp_glow_wide",
+      "file": "export/lamp_glow_wide.png",
+      "size": [
+        29,
+        17
+      ],
+      "pivotFromTopLeft": [
+        14,
+        3
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "lamp_glow_small",
+      "file": "export/lamp_glow_small.png",
+      "size": [
+        19,
+        12
+      ],
+      "pivotFromTopLeft": [
+        9,
+        3
+      ],
+      "technical_checks_passed": true
+    }
+  ],
+  "smoothLighting": "../lighting/manifest.json"
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Этаж, пожалуйста — Крупный пассажир в бордовой куртке",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "source/passenger-stocky.aseprite",
+  "atlas": "export/passenger-stocky.png",
+  "frames": "export/passenger-stocky.json",
+  "preview": "../passengers-preview.gif",
+  "provenance": "Оригинальный спрайт проекта. Пропорции и палитра согласованы с первым пассажиром и визуальным концептом.",
+  "styleReference": "../passenger-yellow/manifest.json",
+  "license": "Графика проекта.",
+  "frameSize": [
+    24,
+    24
+  ],
+  "pivotFromTopLeft": [
+    12,
+    23
+  ],
+  "frontSilhouetteSize": [
+    20,
+    22
+  ],
+  "clips": [
+    {
+      "id": "idle_front",
+      "frames": 4,
+      "loop": true
+    },
+    {
+      "id": "walk_right",
+      "frames": 6,
+      "frameDurationMs": 130,
+      "loop": true
+    },
+    {
+      "id": "walk_left",
+      "frames": 6,
+      "frameDurationMs": 130,
+      "loop": true
+    }
+  ],
+  "technical_checks_passed": true
+}

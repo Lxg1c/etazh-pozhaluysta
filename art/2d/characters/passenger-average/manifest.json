@@ -1,0 +1,44 @@
+{
+  "title": "Этаж, пожалуйста — Пассажир среднего телосложения в зелёной куртке",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "source/passenger-average.aseprite",
+  "atlas": "export/passenger-average.png",
+  "frames": "export/passenger-average.json",
+  "preview": "../passengers-preview.gif",
+  "provenance": "Оригинальный спрайт проекта. Пропорции и палитра согласованы с первым пассажиром и визуальным концептом.",
+  "styleReference": "../passenger-yellow/manifest.json",
+  "license": "Графика проекта.",
+  "frameSize": [
+    24,
+    24
+  ],
+  "pivotFromTopLeft": [
+    12,
+    23
+  ],
+  "frontSilhouetteSize": [
+    14,
+    21
+  ],
+  "clips": [
+    {
+      "id": "idle_front",
+      "frames": 4,
+      "loop": true
+    },
+    {
+      "id": "walk_right",
+      "frames": 6,
+      "frameDurationMs": 110,
+      "loop": true
+    },
+    {
+      "id": "walk_left",
+      "frames": 6,
+      "frameDurationMs": 110,
+      "loop": true
+    }
+  ],
+  "technical_checks_passed": true
+}

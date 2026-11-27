@@ -1,0 +1,12 @@
+{
+  "editor": "Aseprite 1.3.18.6",
+  "title": "Этаж, пожалуйста — шкала с эмоциями",
+  "gradient": "export/mood-gradient.png",
+  "license": "Графика проекта.",
+  "source": "source/satisfaction.aseprite",
+  "faces": [
+    "export/mood-unhappy.png",
+    "export/mood-neutral.png",
+    "export/mood-happy.png"
+  ]
+}

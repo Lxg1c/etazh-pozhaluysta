@@ -1,0 +1,35 @@
+# Unity regenerates these directories on each machine.
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Bb]uild/
+/[Bb]uilds/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Local IDE state and generated project files.
+/.vs/
+/.idea/
+/.vscode/
+/*.csproj
+/*.sln
+/*.slnx
+/*.userprefs
+*.user
+*.suo
+*.DotSettings.user
+*.log
+.DS_Store
+Thumbs.db
+
+# Local playtest output, scratch files, and credentials.
+/production/prototypes/etazh-concept/
+/production/session-state/
+*.tmp
+.env
+.env.*
+*.pfx
+*.p12
+*.keystore

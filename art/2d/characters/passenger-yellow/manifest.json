@@ -1,0 +1,37 @@
+{
+  "title": "Этаж, пожалуйста — пассажир в жёлтой куртке",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "source/passenger-yellow.aseprite",
+  "atlas": "export/passenger-yellow.png",
+  "frames": "export/passenger-yellow.json",
+  "preview": "preview.gif",
+  "provenance": "../../concept-kit/export/concept-sprites.png#waiting_blue_cap",
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "frameSize": [
+    24,
+    24
+  ],
+  "pivotFromTopLeft": [
+    12,
+    23
+  ],
+  "clips": [
+    {
+      "id": "idle_front",
+      "frames": 4,
+      "loop": true
+    },
+    {
+      "id": "walk_right",
+      "frames": 6,
+      "loop": true
+    },
+    {
+      "id": "walk_left",
+      "frames": 6,
+      "loop": true
+    }
+  ],
+  "technical_checks_passed": true
+}

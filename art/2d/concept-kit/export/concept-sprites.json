@@ -1,0 +1,64 @@
+{ "frames": [
+   {
+    "filename": "concept-sprites.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 240, "h": 176 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 240, "h": 176 },
+    "sourceSize": { "w": 240, "h": 176 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.18.6-x64",
+  "image": "concept-sprites.png",
+  "format": "RGBA8888",
+  "size": { "w": 240, "h": 176 },
+  "scale": "1",
+  "layers": [
+   { "name": "stairwell_door", "opacity": 255, "blendMode": "normal" },
+   { "name": "stair_sign", "opacity": 255, "blendMode": "normal" },
+   { "name": "building_entrance", "opacity": 255, "blendMode": "normal" },
+   { "name": "door_blue", "opacity": 255, "blendMode": "normal" },
+   { "name": "door_ochre", "opacity": 255, "blendMode": "normal" },
+   { "name": "door_red", "opacity": 255, "blendMode": "normal" },
+   { "name": "door_olive", "opacity": 255, "blendMode": "normal" },
+   { "name": "plant_large", "opacity": 255, "blendMode": "normal" },
+   { "name": "flower_console", "opacity": 255, "blendMode": "normal" },
+   { "name": "picture_sunset", "opacity": 255, "blendMode": "normal" },
+   { "name": "books_console", "opacity": 255, "blendMode": "normal" },
+   { "name": "window_city", "opacity": 255, "blendMode": "normal" },
+   { "name": "waiting_blue_cap", "opacity": 255, "blendMode": "normal" },
+   { "name": "waiting_green_coat", "opacity": 255, "blendMode": "normal" },
+   { "name": "waiting_brown_hat", "opacity": 255, "blendMode": "normal" },
+   { "name": "walker_umbrella", "opacity": 255, "blendMode": "normal" },
+   { "name": "cat", "opacity": 255, "blendMode": "normal" },
+   { "name": "cabin_open", "opacity": 255, "blendMode": "normal" },
+   { "name": "shaft_aperture", "opacity": 255, "blendMode": "normal" },
+   { "name": "cabin_empty", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+   { "name": "stairwell_door", "keys": [{ "frame": 0, "bounds": {"x": 12, "y": 6, "w": 23, "h": 31 } }] },
+   { "name": "stair_sign", "keys": [{ "frame": 0, "bounds": {"x": 63, "y": 14, "w": 17, "h": 15 } }] },
+   { "name": "building_entrance", "keys": [{ "frame": 0, "bounds": {"x": 98, "y": 4, "w": 44, "h": 36 } }] },
+   { "name": "door_blue", "keys": [{ "frame": 0, "bounds": {"x": 157, "y": 9, "w": 21, "h": 26 } }] },
+   { "name": "door_ochre", "keys": [{ "frame": 0, "bounds": {"x": 205, "y": 9, "w": 22, "h": 26 } }] },
+   { "name": "door_red", "keys": [{ "frame": 0, "bounds": {"x": 13, "y": 53, "w": 21, "h": 26 } }] },
+   { "name": "door_olive", "keys": [{ "frame": 0, "bounds": {"x": 61, "y": 52, "w": 21, "h": 27 } }] },
+   { "name": "plant_large", "keys": [{ "frame": 0, "bounds": {"x": 107, "y": 56, "w": 25, "h": 20 } }] },
+   { "name": "flower_console", "keys": [{ "frame": 0, "bounds": {"x": 153, "y": 53, "w": 29, "h": 26 } }] },
+   { "name": "picture_sunset", "keys": [{ "frame": 0, "bounds": {"x": 206, "y": 58, "w": 20, "h": 16 } }] },
+   { "name": "books_console", "keys": [{ "frame": 0, "bounds": {"x": 13, "y": 99, "w": 22, "h": 22 } }] },
+   { "name": "window_city", "keys": [{ "frame": 0, "bounds": {"x": 53, "y": 97, "w": 37, "h": 26 } }] },
+   { "name": "waiting_blue_cap", "keys": [{ "frame": 0, "bounds": {"x": 111, "y": 98, "w": 17, "h": 23 } }] },
+   { "name": "waiting_green_coat", "keys": [{ "frame": 0, "bounds": {"x": 160, "y": 99, "w": 16, "h": 21 } }] },
+   { "name": "waiting_brown_hat", "keys": [{ "frame": 0, "bounds": {"x": 207, "y": 99, "w": 17, "h": 22 } }] },
+   { "name": "walker_umbrella", "keys": [{ "frame": 0, "bounds": {"x": 14, "y": 140, "w": 20, "h": 28 } }] },
+   { "name": "cat", "keys": [{ "frame": 0, "bounds": {"x": 63, "y": 148, "w": 18, "h": 12 } }] },
+   { "name": "cabin_open", "keys": [{ "frame": 0, "bounds": {"x": 103, "y": 137, "w": 34, "h": 33 } }] },
+   { "name": "shaft_aperture", "keys": [{ "frame": 0, "bounds": {"x": 151, "y": 137, "w": 34, "h": 34 } }] },
+   { "name": "cabin_empty", "keys": [{ "frame": 0, "bounds": {"x": 199, "y": 137, "w": 34, "h": 33 } }] }
+  ]
+ }
+}

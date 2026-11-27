@@ -1,0 +1,42 @@
+{
+  "title": "Этаж, пожалуйста — окна",
+  "date": "2026-11-26",
+  "editor": "Aseprite 1.3.18.6",
+  "source": "windows.aseprite",
+  "preview": "preview.png",
+  "provenance": "../concept-kit/preview.png",
+  "license": "Графика проекта на основе концепта, предоставленного пользователем.",
+  "layers": [
+    "Ночной город",
+    "Дождь",
+    "Рама и подоконник"
+  ],
+  "assets": [
+    {
+      "id": "window_wide",
+      "file": "export/window_wide.png",
+      "size": [
+        37,
+        25
+      ],
+      "pivotFromTopLeft": [
+        18,
+        23
+      ],
+      "technical_checks_passed": true
+    },
+    {
+      "id": "window_narrow",
+      "file": "export/window_narrow.png",
+      "size": [
+        27,
+        23
+      ],
+      "pivotFromTopLeft": [
+        13,
+        21
+      ],
+      "technical_checks_passed": true
+    }
+  ]
+}
