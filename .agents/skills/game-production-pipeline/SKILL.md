@@ -60,3 +60,4 @@ Read the relevant project reference when applying this workflow to Unity.
 - [Architecture and technologies](../../../unity-architecture.md) for a technical design or assembly boundaries.
 - [Testing and acceptance](../../../unity-testing.md) for the milestone test plan.
 - [C# style and review](../../../csharp-code-review.md) for implementation and review criteria.
+- [Desktop build and release checks](references/unity-desktop-builds.md) when publishing Windows and macOS packages.

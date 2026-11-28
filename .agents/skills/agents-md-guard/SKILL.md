@@ -1,9 +1,15 @@
 ---
 name: agents-md-guard
-description: Validate proposed reusable project conventions before writing them to docs/rules/. Use when the user or agent wants to record a new rule, convention, or lesson.
+description: Capture verified development methods in project skills and validate proposed rules against AGENTS.md topic routing. Use when development reveals a repeatable technique or the user wants to record a new convention.
 ---
 
 # AGENTS.md Guard
+
+## Record a proven method
+
+During development, capture a method when it solves a recurring problem and its result has been verified. Add the symptom, working procedure, and a check to the closest project-owned skill in `.agents/skills/`. If the project has no skill for that procedure, create a focused one and link it from the relevant topic file. Scope the procedure to the cases where it works and keep project-specific decisions in the GDD or technical notes.
+
+Use the validation and confirmation process below for new mandatory conventions.
 
 ## Validate the rule
 
@@ -20,19 +26,9 @@ If a check fails, reject the candidate, identify the failed check, and explain w
 
 ## Route and record
 
-Use the exact topic destinations below. Choose one primary topic and place the rule under the matching section, or add a short section if necessary.
+Follow the exact file path in the current repository's AGENTS.md routing table, including letter case. Choose one primary topic and use the matching section or add a short section.
 
-| Topic | Destination |
-| --- | --- |
-| Sprites, pixel art, Aseprite, and 2D import | `docs/rules/2d-art.md` |
-| 3D models, shaders, and lighting | `docs/rules/3d-art.md` |
-| HUD, menus, and interface | `docs/rules/ui-ux.md` |
-| Music, sound, and audio buses | `docs/rules/audio.md` |
-| Code structure, assembly definitions, and architecture | `docs/rules/architecture.md` |
-| Tests, EditMode, PlayMode, and manual checks | `docs/rules/testing.md` |
-| Workflow, review, and rule conventions | `docs/rules/workflow.md` |
-
-Show the exact proposed wording and destination to the user. Wait for confirmation of that wording and destination before writing. Reuse an existing confirmation that covers both.
+Show the exact proposed wording and destination. Ask “Записать это правило в `<путь>`?” and wait for confirmation. Reuse an existing confirmation that covers both the wording and the destination.
 
 Preview the insertion and count all resulting lines. If it would put the topic above 50 lines, propose a specific less relevant rule to archive in a separate Legacy file or remove, and wait for the user's decision. Archive or remove an existing rule only with authorization for that change.
 
